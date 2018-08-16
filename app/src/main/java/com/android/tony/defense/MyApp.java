@@ -16,18 +16,7 @@ public class MyApp extends DefenseApplication implements IExceptionHandler {
 
     @Override
     public void onUncaughtExceptionHappened(Thread thread, Throwable throwable, boolean isSafeMode) {
-        Log.i("MyApp", "onUncaughtExceptionHappened:" + throwable.getMessage());
         throwable.printStackTrace();
     }
 
-    @Override
-    public void onEnterSafeMode() {
-        Log.i("MyApp", "onEnterSafeMode");
-    }
-
-    @Override
-    public void onMayBeBlackScreen(Throwable throwable) {
-        Log.i("MyApp", "onMayBeBlackScreen:" + throwable.getMessage());
-        throwable.printStackTrace();
-    }
 }
