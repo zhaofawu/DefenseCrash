@@ -1,15 +1,10 @@
 package com.android.tony.defenselib.handler;
 
-/**
- * Created by wanjian on 2018/5/29.
- */
-
 public class ExceptionDispatcher {
 
     private IExceptionHandler mIExceptionHandler;
 
-    public ExceptionDispatcher(IExceptionHandler IExceptionHandler) {
-        mIExceptionHandler = IExceptionHandler;
+    public ExceptionDispatcher() {
     }
 
     public final void uncaughtExceptionHappened(Thread thread, Throwable throwable, boolean isSafeMode) {
@@ -17,7 +12,7 @@ public class ExceptionDispatcher {
             return;
         }
         try {
-            mIExceptionHandler.onUncaughtExceptionHappened(thread, throwable, isSafeMode);
+            mIExceptionHandler.onCaughtException(thread, throwable, isSafeMode);
         } catch (Throwable t) {
             t.printStackTrace();
         }
@@ -45,4 +40,7 @@ public class ExceptionDispatcher {
         }
     }
 
+    public void setIExceptionHandler(IExceptionHandler IExceptionHandler) {
+        mIExceptionHandler = IExceptionHandler;
+    }
 }

@@ -2,24 +2,25 @@ package com.android.tony.defenselib.handler;
 
 public interface IExceptionHandler {
     /**
-     * 子线程抛出异常时始终调用该方法。
-     * 主线程只有第一次抛出异常时才会调用该方法，
-     * 该方法中到的throwable都会上报到bugly。
+     * when we caught the exception,this method will be called.
+     * you should print the stack of the throwable,let developer know this crash.
+     * when you release this apk,you can upload this throwable to you bug collection sdk.
      *
-     * @param thread
-     * @param throwable
-     * @param isSafeMode
+     * @param thread     which thread crashed.
+     * @param throwable  crash throwable.
+     * @param isSafeMode it is already in safe mode,if it is true,will mean the previous crash led to this crash
      */
-    void onUncaughtExceptionHappened(Thread thread, Throwable throwable, boolean isSafeMode);
+    void onCaughtException(Thread thread, Throwable throwable, boolean isSafeMode);
 
     /**
-     * 崩溃后进入安全模式
+     * when crash happen ,we will keep the main looper loop.
+     * you should know this event.you can do nothing or toast your users.
      */
     void onEnterSafeMode();
 
     /**
-     * 可能Activity因为生命周期抛出异常导致黑屏
-     * 该方法具有一定的概率性
+     * crashed by view measure,layout or draw method lead Choreographer dead.
+     * when this method called,you should restart that activity or finish it.
      *
      * @param throwable
      */

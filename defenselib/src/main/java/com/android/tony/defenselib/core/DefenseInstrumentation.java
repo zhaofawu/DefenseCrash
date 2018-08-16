@@ -1,4 +1,4 @@
-package com.android.tony.defenselib;
+package com.android.tony.defenselib.core;
 
 import android.app.Activity;
 import android.app.Instrumentation;
@@ -181,7 +181,7 @@ public class DefenseInstrumentation extends Instrumentation {
 
     private void callException(Throwable throwable) {
         if (mExceptionDispatcher != null) {
-            mExceptionDispatcher.uncaughtExceptionHappened(Looper.getMainLooper().getThread(), throwable, DefenseCrash.isSafeMode());
+            mExceptionDispatcher.uncaughtExceptionHappened(Looper.getMainLooper().getThread(), throwable, DefenseCore.isInSafeMode());
         }
     }
 

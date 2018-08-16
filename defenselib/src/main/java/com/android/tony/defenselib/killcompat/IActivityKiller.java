@@ -1,10 +1,6 @@
-package com.android.tony.defenselib.compat;
+package com.android.tony.defenselib.killcompat;
 
 import android.os.Message;
-
-/**
- * Created by wanjian on 2018/5/24.
- */
 
 public interface IActivityKiller {
 

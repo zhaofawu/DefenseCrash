@@ -1,4 +1,4 @@
-package com.android.tony.defenselib.compat;
+package com.android.tony.defenselib.killcompat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,11 +7,6 @@ import android.os.Message;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-
-/**
- * Created by wanjian on 2018/5/24.
- * <p>
- */
 
 public class ActivityKillerV15_V20 implements IActivityKiller {
 

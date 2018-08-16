@@ -1,4 +1,4 @@
-package com.android.tony.defenselib.compat;
+package com.android.tony.defenselib.killcompat;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * Created by wanjian on 2018/5/24.
  * <p>
  * android 7.1.1
  * <p>
